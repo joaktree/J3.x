@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="3.0" type="plugin" group="content" method="upgrade">
+	<name>plg_content_joaktree</name>
+	<author>joaktree.com</author>
+	<creationDate>May 2013</creationDate>
+	<license>GNU/GPL</license>
+	<version>1.5.0</version>
+	<description>PLG_CONTENT_JOAKTREE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="joaktree">joaktree.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+    <languages folder="administrator/language/en-GB">
+        <language tag="en-GB">en-GB.plg_content_joaktree.sys.ini</language>
+        <language tag="en-GB">en-GB.plg_content_joaktree.ini</language>
+    </languages>
+    
+	<config>
+		<fields name="params">			
+		</fields>
+	</config>
+
+</extension>

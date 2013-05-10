@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+    <name>com_joaktree</name>
+    <author>joaktree.com</author>
+    <creationDate>May 2013</creationDate>
+	<copyright>(C) 2009 - 2013 Joaktree.com</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>info@joaktree.com</authorEmail>
+	<authorUrl>www.joaktree.com</authorUrl>
+    <version>1.5.0.beta.3</version>
+    <description>COM_JOAKTREE_XML_DESC</description>
+	
+	<!-- database scripts -->
+	<scriptfile>joaktree.script.php</scriptfile>
+    
+    <!-- start: site -->
+    <files folder="components/com_joaktree">
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>router.php</filename>
+        <filename>joaktree.php</filename>
+	    <folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>helper</folder>
+		<folder>models</folder>
+		<folder>themes</folder>
+		<folder>views</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB.com_joaktree.ini</language>
+    </languages>
+    <!-- end: site -->
+
+    <!-- start: administration -->
+    <administration>
+	    <menu 
+	    	task="default" 
+	    	img="components/com_joaktree/assets/images/icon-16-joaktree.png"
+	    >
+	    	COM_JOAKTREE
+	    </menu>
+	    <submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu 
+				img="components/com_joaktree/assets/images/icon-16-joaktree.png"
+			>
+				JT_SUBMENU_CONTROLPANEL
+			</menu>
+			<menu 
+				view="jt_applications"
+				img="components/com_joaktree/assets/images/icon-16-app.png"
+			>
+				JT_SUBMENU_APPLICATIONS
+			</menu>
+			<menu 
+				view="jt_trees"
+				img="components/com_joaktree/assets/images/icon-16-familytree.png"
+			>
+				JT_SUBMENU_FAMILYTREES
+			</menu>
+			<menu 
+				view="jt_persons"
+				img="components/com_joaktree/assets/images/icon-16-person.png"
+			>
+				JT_SUBMENU_PERSONS
+			</menu>
+			<menu 
+				view="jt_maps"
+				img="components/com_joaktree/assets/images/icon-16-map.png"
+			>
+				JT_SUBMENU_MAPS
+			</menu>
+			<menu 
+				view="jt_settings"
+				layout="personname"
+				img="components/com_joaktree/assets/images/icon-16-display2.png"
+			>
+				JT_SUBMENU_PERSON_NAMEDISPLAY
+			</menu>
+			<menu 
+				view="jt_settings"
+				layout="personevent"
+				img="components/com_joaktree/assets/images/icon-16-display1.png"
+			>
+				JT_SUBMENU_PERSON_EVENTDISPLAY
+			</menu>
+			<menu 
+				view="jt_settings"
+				layout="relationevent"
+				img="components/com_joaktree/assets/images/icon-16-display3.png"
+			>
+				JT_SUBMENU_RELATION_EVENTDISPLAY
+			</menu>
+			<menu 
+				view="jt_themes"
+				img="components/com_joaktree/assets/images/icon-16-theme.png"
+			>
+				JT_SUBMENU_THEMES
+			</menu>
+	    </submenu>
+
+	    <files folder="administrator/components/com_joaktree">
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>joaktree.php</filename>
+			<filename>access.xml</filename>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>help</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>services</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+	    </files>
+
+	    <languages folder="administrator/language/en-GB">
+			<language tag="en-GB">en-GB.com_joaktree.ini</language>
+			<language tag="en-GB">en-GB.com_joaktree.gedcom.ini</language>
+			<language tag="en-GB">en-GB.com_joaktree.services.ini</language>
+			<language tag="en-GB">en-GB.com_joaktree.sys.ini</language>
+	    </languages>
+
+	</administration>
+    <!-- end: administration -->
+
+</extension>
+
+
+
+	
+	
+

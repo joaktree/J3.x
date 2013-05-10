@@ -1,0 +1,224 @@
+/* default page span */
+span.jt-default {
+	float: left; 
+	width: 10em; 
+	font-weight: bold;
+}
+
+.jt-icon {
+	float: left;
+	margin-bottom: 15px;
+	margin-right: 15px;
+	text-align: center;
+}
+.jt-icon a {
+    background-color: #FFFFFF;
+    background-position: -30px center;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    color: #565656;
+    display: block;
+    float: left;
+    height: 82px;
+    text-decoration: none;
+    transition-duration: 0.8s;
+    transition-property: background-position, -moz-border-radius-bottomleft, -moz-box-shadow;
+    vertical-align: middle;
+    width: 148px;
+    padding-top: 15px;
+}
+
+/* toggle columns */
+.jt-hide-app, .jt-hide-pat, .jt-hide-per, .jt-hide-tree, .jt-hide-rob, .jt-hide-map, .jt-hide {
+	display: none;
+}
+
+.jt-show-app, .jt-show-pat, .jt-show-per, .jt-show-tree, .jt-show-rob, .jt-show-map, .jt-show {
+	display: ;
+}
+
+/* Joaktree icons  */
+.icon-importgedcom, .icon-exportgedcom {
+	background: url('../images/icon-16-person.png') no-repeat left;
+}
+
+/*
+.icon-48-application {
+	background: url('../images/icon-48-app.png') no-repeat left;
+}
+
+.icon-48-joaktree {
+	background: url('../images/icon-48-joaktree.png') no-repeat left;
+}
+
+.icon-48-person {
+	background: url('../images/icon-48-person.png') no-repeat left;
+}
+
+.icon-48-familytree {
+	background: url('../images/icon-48-familytree.png') no-repeat left;
+}
+
+.icon-48-theme {
+	background: url('../images/icon-48-theme.png') no-repeat left;
+}
+
+.icon-48-display1 {
+	background: url('../images/icon-48-display1.png') no-repeat left;
+}
+
+.icon-48-display2 {
+	background: url('../images/icon-48-display2.png') no-repeat left;
+}
+
+.icon-48-display3 {
+	background: url('../images/icon-48-display3.png') no-repeat left;
+}
+
+.icon-48-location {
+	background: url('../images/icon-48-location.png') no-repeat left;
+}
+
+.icon-48-map {
+	background: url('../images/icon-48-map.png') no-repeat left;
+}
+
+.icon-48-help {
+	background: url('../images/icon-48-help.png') no-repeat left;
+}
+*/
+
+/* Joaktree buttons */
+/*
+.icon-32-importgedcom {
+	background: url('../images/icon-32-gedcom.png') no-repeat left;
+}
+
+.icon-32-exportgedcom {
+	background: url('../images/icon-32-gedcom.png') no-repeat left;
+}
+
+.icon-32-cleargedcom {
+	background: url('../images/icon-32-deletegedcom.png') no-repeat left;
+}
+
+.icon-32-deletegedcom {
+	background: url('../images/icon-32-deletegedcom.png') no-repeat left;
+}
+
+.icon-32-assignfamilytree {
+	background: url('../images/icon-32-assignfamilytree.png') no-repeat left;
+}
+
+.icon-32-publish {
+	background: url('../images/icon-32-publish.png') no-repeat left;
+}
+
+.icon-32-unpublish {
+	background: url('../images/icon-32-unpublish.png') no-repeat left;
+}
+
+.icon-32-living {
+	background: url('../images/icon-32-living.png') no-repeat left;
+}
+
+.icon-32-notliving {
+	background: url('../images/icon-32-notliving.png') no-repeat left;
+}
+
+.icon-32-page {
+	background: url('../images/icon-32-page.png') no-repeat left;
+}
+
+.icon-32-nopage {
+	background: url('../images/icon-32-nopage.png') no-repeat left;
+}
+
+.icon-32-map {
+	background: url('../images/icon-32-map.png') no-repeat left;
+}
+
+.icon-32-dynmap {
+	background: url('../images/icon-32-dynmap.png') no-repeat left;
+}
+
+.icon-32-statmap {
+	background: url('../images/icon-32-statmap.png') no-repeat left;
+}
+
+.icon-32-nomap {
+	background: url('../images/icon-32-nomap.png') no-repeat left;
+}
+
+.icon-32-editcss {
+	background: url('../images/icon-32-editcss.png') no-repeat left;
+}
+
+.icon-32-location {
+	background: url('../images/icon-32-location.png') no-repeat left;
+}
+
+.icon-32-geocode {
+	background: url('../images/icon-32-geocode.png') no-repeat left;
+}
+
+.icon-32-resetlocation {
+	background: url('../images/icon-32-resetlocation.png') no-repeat left;
+}
+
+.icon-32-purgelocations {
+	background: url('../images/icon-32-purgeloc.png') no-repeat left;
+}
+*/
+
+
+/* map sprite */
+
+/* Markers are 24 pixels wide by 32 pixels tall. */
+/* 2px horizontal and 2px vertical between markers. */
+/* Therefore horizontal space of 1 marker: 26 x 34 pixels */
+
+.jt-map-sprite-0 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 0;	
+}
+
+.jt-map-sprite-1 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -34px;	
+}
+
+.jt-map-sprite-2 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -68px;	
+}
+.jt-map-sprite-3 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -102px;	
+}
+.jt-map-sprite-4 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -136px;	
+}
+.jt-map-sprite-5 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -170px;	
+}
+.jt-map-sprite-6 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -204px;	
+}
+
+.jt-map-sprite-7 {
+	width:275px;
+	height:32px;
+	background:url(../../services/images/jt_map_sprite.png) 0 -238px;	
+}
+

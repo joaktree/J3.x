@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="3.0" type="plugin" group="search" method="upgrade">
+	<name>plg_search_joaktree</name>
+	<author>joaktree.com</author>
+	<creationDate>May 2013</creationDate>
+	<copyright>(C) 2009 - 2013 Joaktree.com</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>info@joaktree.com</authorEmail>
+	<authorUrl>www.joaktree.com</authorUrl>
+    <version>1.5.0.beta.2</version>
+	<description>PLG_SEARCH_JOAKTREE_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="joaktree">joaktree.php</filename>
+		<filename>index.html</filename>
+	</files>
+
+    <languages folder="administrator/language/en-GB">
+        <language tag="en-GB">en-GB.plg_search_joaktree.sys.ini</language>
+        <language tag="en-GB">en-GB.plg_search_joaktree.ini</language>
+    </languages>
+    
+	<config>
+		<fields name="params">			
+
+			<fieldset name="basic">
+				<field 
+					name="search_limit" 
+					type="text" 
+					size="5" 
+					default="50" 
+					label="JTSRCH_LIMIT_LABEL" 
+					description="JTSRCH_LIMIT_DESC"
+				/>
+				
+				<field 
+					name="search_patronyms" 
+					type="radio" 
+					default="0" 
+					label="JTSRCH_PATR_LABEL" 
+					description="JTSRCH_PATR_DESC"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				
+				<field 
+					name="search_notes" 
+					type="radio" 
+					default="0" 
+					label="JTSRCH_NOTES_LABEL" 
+					description="JTSRCH_NOTES_DESC"
+				>
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+
+				<field 
+					name="link_option" 
+					type="radio" 
+					default="1" 
+					label="JTSRCH_LINK_LABEL" 
+					description="JTSRCH_LINK_DESC"
+				>
+					<option value="0">JTSRCH_LINK_VALUE_PARENT</option>
+					<option value="1">JTSRCH_LINK_VALUE_NEW</option>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

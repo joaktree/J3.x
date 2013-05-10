@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="3.0" type="module" client="site" method="upgrade">
+	<name>Joaktree Related Items</name>
+	<author>joaktree.com</author>
+	<creationDate>May 2013</creationDate>
+	<license>GNU/GPL</license>
+	<version>1.5.0.beta.1</version>
+	<description>MOD_JOAKTREE_RELITEMS_XML_DESCRIPTION</description>
+	
+	<!-- user part -->
+	<files>
+		<filename module="mod_joaktree_related_items">mod_joaktree_related_items.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB.mod_joaktree_related_items.ini</language>
+	</languages>
+    
+	<config>
+		<fields name="params">			
+
+			<fieldset name="basic">
+				<field 
+					name="showDate" 
+					type="radio" 
+					default="0" 
+					label="JTRELITEMS_DATE_LABEL" 
+					description="JTRELITEMS_DATE_DESC"
+				>
+					<option value="0">JTRELITEMS_DATE_OPTION1</option>
+					<option value="1">JTRELITEMS_DATE_OPTION2</option>				
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>

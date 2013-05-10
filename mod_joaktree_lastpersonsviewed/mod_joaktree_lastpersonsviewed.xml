@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="3.0" type="module" client="site" method="upgrade">
+	<name>Joaktree Last Persons Viewed</name>
+	<author>joaktree.com</author>
+	<creationDate>May 2013</creationDate>
+	<copyright>(C) 2009 - 2013 Joaktree.com</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>info@joaktree.com</authorEmail>
+	<authorUrl>www.joaktree.com</authorUrl>
+    <version>1.5.0.beta.1</version>
+	<description>MOD_JOAKTREE_LASTPERSONSVIEWED_XML_DESCRIPTION</description>
+	
+	<!-- user part -->
+	<files>
+		<filename module="mod_joaktree_lastpersonsviewed">mod_joaktree_lastpersonsviewed.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB.mod_joaktree_lastpersonsviewed.ini</language>
+	</languages>
+    
+	<config>
+		<fields name="params">			
+			<fieldset name="basic">
+				<field
+					id="numberInList"
+					name="numberInList"
+					type="list"
+					label="MOD_JTLPV_NUMBER_IN_LIST"
+					description="MOD_JTLPV_NUMBER_IN_LIST_DESC"
+					default="3"
+				>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">		
+				<field name="owncache" type="list" default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC" >
+					<option value="1">JGLOBAL_USE_GLOBAL</option>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING
+					</option>
+				</field>
+	
+				<field name="cache_time" type="text" default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
