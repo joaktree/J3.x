@@ -155,7 +155,24 @@ class JoaktreeModelRepository extends JModelForm {
 						
 			// Bind the form fields to the table
 			if (empty($form['id'])) {
-				$form['id'] = JoaktreeHelper::generateJTId();
+				// retreive ID and double check that it is not used
+				$continue = true;
+				$i = 0;
+				while ($continue) {
+					$tmpId = JoaktreeHelper::generateJTId();
+					$i++;
+					
+					if ($this->check($tmpId)) {
+						$form['id'] = $tmpId;
+						$continue = false;
+						break;
+					}
+					if ($i > 100) {
+						$continue = false;
+						return false;
+					}
+				}
+								
 				$status		= 'new';
 				$crud		= 'C';
 			} else {
@@ -259,6 +276,18 @@ class JoaktreeModelRepository extends JModelForm {
 		return $return;
 	}
 	
-	
+	private function check($tmpId) {
+		$query = $this->_db->getQuery(true);
+		$query->select(' 1 ');
+		$query->from(  ' #__joaktree_repositories ');
+		$query->where( ' id   = '.$this->_db->quote($tmpId).' ');
+		
+		$this->_db->setQuery($query);
+		$result = $this->_db->loadResult();
+		
+		// ID is alreadey used -> return false
+		// ID is not used in the selected table -> return true
+		return ($result) ? false : true;
+	}
 }
 ?>

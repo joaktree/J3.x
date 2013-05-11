@@ -189,7 +189,23 @@ class JoaktreeModelPersonform extends JModelForm {
 			if ($canDo->get('core.create')) {
 				// in case of a new person the id is empty and we are filling it now
 				if ($form['person']['status'] == 'new') {
-					$form['person']['id'] = JoaktreeHelper::generateJTId();
+					// retreive ID and double check that it is not used
+					$continue = true;
+					$i = 0;
+					while ($continue) {
+						$tmpId = JoaktreeHelper::generateJTId();
+						$i++;
+						
+						if ($this->check($tmpId, 'person')) {
+							$form['person']['id'] = $tmpId;
+							$continue = false;
+							break;
+						}
+						if ($i > 100) {
+							$continue = false;
+							return JText::_('JTAPPS_MESSAGE_NOSAVE');
+						}
+					}
 				}
 				
 				switch ($form['type']) {
@@ -767,9 +783,28 @@ class JoaktreeModelPersonform extends JModelForm {
 			}
 			
 			if ($indNotesTable) {
-				$tabNot->note_id = isset($form['person']['notes']['note_id'][$i])
-									? $form['person']['notes']['note_id'][$i]
-									: JoaktreeHelper::generateJTId();
+				if (isset($form['person']['notes']['note_id'][$i])) {		
+					$tabNot->note_id = $form['person']['notes']['note_id'][$i];
+				} else {
+					// retreive ID and double check that it is not used
+					$continue = true;
+					$i = 0;
+					while ($continue) {
+						$tmpId = JoaktreeHelper::generateJTId();
+						$i++;
+						
+						if ($this->check($tmpId, 'note')) {
+							$tabNot->note_id = $tmpId;
+							$continue = false;
+							break;
+						}
+						if ($i > 100) {
+							$continue = false;
+							return false;
+						}
+					}
+				}
+
 				$tabNot2->id 	 = $tabNot->note_id;
 				$tabNot2->value	 = $noteText;
 			} else { 
@@ -831,6 +866,31 @@ class JoaktreeModelPersonform extends JModelForm {
 		// Bind the form fields to the table
 		$tabRel->app_id			= $form['person']['app_id'];
 
+		// check family
+		$famtmp = explode('!', $form['person']['relations']['family'][0]);
+		$relation_id = $famtmp[0]; 
+		$family_id  = $famtmp[1];
+		
+		if ($family_id == '0') {
+			// retreive ID and double check that it is not used
+			$continue = true;
+			$i = 0;
+			while ($continue) {
+				$tmpId = JoaktreeHelper::generateJTId();
+				$i++;
+				
+				if ($this->check($tmpId, 'family')) {
+					$family_id = $tmpId;
+					$continue = false;
+					break;
+				}
+				if ($i > 100) {
+					$continue = false;
+					return false;
+				}
+			}	
+		}
+		
 		if (($form['action'] == 'addparent') || ($form['action'] == 'addchild')) {
 			if ($form['action'] == 'addparent') {
 				// adding parent
@@ -844,10 +904,10 @@ class JoaktreeModelPersonform extends JModelForm {
 				$sex = null;				
 			}
 			
-			// check family
-			$famtmp = explode('!', $form['person']['relations']['family'][0]);
-			$relation_id = $famtmp[0]; 
-			$family_id  = $famtmp[1];
+//			// check family
+//			$famtmp = explode('!', $form['person']['relations']['family'][0]);
+//			$relation_id = $famtmp[0]; 
+//			$family_id  = $famtmp[1];
 			
 			// If it is a second parent, this uniqueness of family_id has to be checked.
 			if (($relation_id != '0') && ($family_id != '0')) {
@@ -859,7 +919,7 @@ class JoaktreeModelPersonform extends JModelForm {
 			}
 			$tabRel->type			= ($sex == 'F') ? 'mother' : 'father';
 			$tabRel->subtype		= $form['person']['relations']['relationtype'][0];
-			$tabRel->family_id		= ($family_id == '0') ? JoaktreeHelper::generateJTId() : $family_id;
+			$tabRel->family_id		= $family_id;
 			$tabRel->orderNumber_1 	= $this->getOrderNumber($tabRel->app_id, $tabRel->person_id_1, 'parent');
 			$tabRel->orderNumber_2 	= $this->getOrderNumber($tabRel->app_id, $tabRel->person_id_2, 'child');
 		} else if ($form['action'] == 'addpartner') {
@@ -871,14 +931,14 @@ class JoaktreeModelPersonform extends JModelForm {
 				$tabRel->person_id_1	= $form['person']['relations']['id'][0];
 			}
 			
-			// check family
-			$famtmp = explode('!', $form['person']['relations']['family'][0]);
-			$relation_id = $famtmp[0]; 
-			$family_id  = $famtmp[1];
+//			// check family
+//			$famtmp = explode('!', $form['person']['relations']['family'][0]);
+//			$relation_id = $famtmp[0]; 
+//			$family_id  = $famtmp[1];
 			
 			$tabRel->type			= 'partner';
 			$tabRel->subtype		= $form['person']['relations']['partnertype'][0];
-			$tabRel->family_id		= ($family_id == '0') ? JoaktreeHelper::generateJTId() : $family_id;
+			$tabRel->family_id		= $family_id;
 			$tabRel->orderNumber_1 	= $this->getOrderNumber($tabRel->app_id, $tabRel->person_id_1, 'partner');
 			$tabRel->orderNumber_2 	= $this->getOrderNumber($tabRel->app_id, $tabRel->person_id_2, 'partner');
 		}
@@ -1363,6 +1423,38 @@ class JoaktreeModelPersonform extends JModelForm {
 		return $result;
 	}
 	
+	private function check($tmpId, $type) {
+		$query = $this->_db->getQuery(true);
+		$query->select(' 1 ');
+		
+		switch ($type) {
+			case 'person':
+				$query->from(  ' #__joaktree_persons ');
+				$query->where( ' id   = '.$this->_db->quote($tmpId).' ');
+				break;
+				
+			case 'note':
+				$query->from(  ' #__joaktree_notes ');
+				$query->where( ' id   = '.$this->_db->quote($tmpId).' ');
+				break;
+				
+			case 'family':
+				$query->from(  ' #__joaktree_relations ');
+				$query->where( ' family_id   = '.$this->_db->quote($tmpId).' ');
+				break;
+			default:
+				$query->from(  ' dual ');
+				break;	
+		}
+		
+		$this->_db->setQuery($query);
+		$result = $this->_db->loadResult();
+		
+		// ID is alreadey used -> return false
+		// ID is not used in the selected table -> return true
+		return ($result) ? false : true;
+	}
+	
 	private function checkFamilyId($appId, $pid1, $pid2, $familyId) {
 		$query = $this->_db->getQuery(true);
 		
@@ -1377,8 +1469,27 @@ class JoaktreeModelPersonform extends JModelForm {
 		$this->_db->setQuery($query);
 		$result = $this->_db->loadResult();
 		
-		return ($result) ? JoaktreeHelper::generateJTId() : $familyId;
+		if ($result) {		
+			// retreive ID and double check that it is not used
+			$continue = true;
+			$i = 0;
+			while ($continue) {
+				$tmpId = JoaktreeHelper::generateJTId();
+				$i++;
 				
+				if ($this->check($tmpId, 'family')) {
+					$familyId = $tmpId;
+					$continue = false;
+					break;
+				}
+				if ($i > 100) {
+					$continue = false;
+					return false;
+				}
+			}
+		}
+		
+		return $familyId;		
 	}
 	
 	private function getChildren($appId, $familyId) {
