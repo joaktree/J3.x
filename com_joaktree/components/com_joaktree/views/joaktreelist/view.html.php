@@ -83,7 +83,7 @@ class JoaktreeViewJoaktreeList extends JViewLegacy {
 		$lists['order'] 	= $filter_order;
 		
 		// search filter
-		$lists['searchWidth']	= (int) $params->get('search_width', '10'); 
+		$lists['searchWidth']	= (int) $params->get('search_width', '120'); 
 		$lists['search1']		= $search1;
 		$lists['search2']		= $search2;
 		$lists['search3']		= $search3;

@@ -566,7 +566,7 @@ class com_joaktreeInstallerScript
 			   .') '
 			   .'COMMENT="'.$version.'" ';
 			   
-			$params = '{"search_width":"9"' 
+			$params = '{"search_width":"120"' 
 					 .',"show_update":"Y"'
 					 .',"columns":"3"'
 					 .',"groupCount":"3"'

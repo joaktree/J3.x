@@ -57,19 +57,43 @@
 				</tr>
 				<tr>
 					<th class="jt-content-th">
-						<input type="text" name="search1" id="search1" value="<?php echo $this->lists['search1'];?>" class="text_area" size="<?php echo $this->lists['searchWidth'];?>" onchange="document.adminForm.submit();" />
+						<input 
+							type="text" 
+							name="search1" 
+							id="search1" 
+							value="<?php echo $this->lists['search1'];?>" 
+							class="text_area" 
+							style="width: <?php echo $this->lists['searchWidth'];?>px;" 
+							onchange="document.adminForm.submit();" 
+						/>
 						<input type="submit" onclick="this.form.submit();" name="Go" class="button" value="<?php echo JText::_( 'JT_SEARCH' ); ?>" title="<?php echo JText::_( 'JT_TO_SEARCH' ); ?>" />
 						<input type="submit" onclick="document.getElementById('search1').value='';this.form.submit();" name="Reset" class="button" value="<?php echo JText::_( 'JT_RESET' ); ?>" title="<?php echo JText::_( 'JT_TO_RESET' ); ?>" />                               
 					</th>
 					<?php if ($this->lists['patronym'] != 0) { ?>
 					  <th class="jt-content-th">
-						<input type="text" name="search2" id="search2" value="<?php echo $this->lists['search2'];?>" class="text_area" size="<?php echo $this->lists['searchWidth'];?>" onchange="document.adminForm.submit();" />
+						<input 
+							type="text" 
+							name="search2" 
+							id="search2" 
+							value="<?php echo $this->lists['search2'];?>" 
+							class="text_area" 
+							style="width: <?php echo $this->lists['searchWidth'];?>px;" 
+							onchange="document.adminForm.submit();" 
+						/>
 						<input type="submit" onclick="this.form.submit();" name="Go" class="button" value="<?php echo JText::_( 'JT_SEARCH' ); ?>" title="<?php echo JText::_( 'JT_TO_SEARCH' ); ?>" />
 						<input type="submit" onclick="document.getElementById('search2').value='';this.form.submit();" name="Reset" class="button" value="<?php echo JText::_( 'JT_RESET' ); ?>" title="<?php echo JText::_( 'JT_TO_RESET' ); ?>" />                               
 					  </th>
 					<?php } ?>
 					<th class="jt-content-th">
-						<input type="text" name="search3" id="search3" value="<?php echo $this->lists['search3'];?>" class="text_area" size="<?php echo $this->lists['searchWidth'];?>" onchange="document.adminForm.submit();" />
+						<input 
+							type="text" 
+							name="search3" 
+							id="search3" 
+							value="<?php echo $this->lists['search3'];?>" 
+							class="text_area" 
+							style="width: <?php echo $this->lists['searchWidth'];?>px;" 
+							onchange="document.adminForm.submit();" 
+						/>
 						<input type="submit" onclick="this.form.submit();" name="Go" class="button" value="<?php echo JText::_( 'JT_SEARCH' ); ?>" title="<?php echo JText::_( 'JT_TO_SEARCH' ); ?>" />
 						<input type="submit" onclick="document.getElementById('search3').value='';this.form.submit();" name="Reset" class="button" value="<?php echo JText::_( 'JT_RESET' ); ?>" title="<?php echo JText::_( 'JT_TO_RESET' ); ?>" />
 					</th>
