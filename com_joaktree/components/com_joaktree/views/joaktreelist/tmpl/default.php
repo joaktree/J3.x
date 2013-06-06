@@ -106,20 +106,22 @@
 				</tr>
 			</thead>
 			<!-- footer -->
-			<tfoot>
-				<?php 
-					if ($this->lists['patronym'] != 0) { 
-						$colspanValue = 6;
-					} else {
-						$colspanValue = 5;
-					}
-				?>
-				<tr align="center">
-					<td colspan="<?php echo $colspanValue; ?>" >
-						<?php echo $this->pagination->getListFooter(); ?>
-					</td>
-				</tr>
-			</tfoot>
+			<?php if ($this->pagination->pagesTotal > 1) { ?>
+				<tfoot>
+					<?php 
+						if ($this->lists['patronym'] != 0) { 
+							$colspanValue = 6;
+						} else {
+							$colspanValue = 5;
+						}
+					?>
+					<tr align="center">
+						<th colspan="<?php echo $colspanValue; ?>" >
+							<?php echo $this->pagination->getListFooter(); ?>
+						</th>
+					</tr>
+				</tfoot>
+			<?php } ?>
 			<!-- table body -->
 			<tbody>
 			<?php

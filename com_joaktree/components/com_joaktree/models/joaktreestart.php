@@ -59,6 +59,7 @@ class JoaktreeModelJoaktreestart extends JModelLegacy {
 							 .' ON ( jpn.app_id = jte.app_id ) '
 							 );
 			$query->where( ' jte.id = '.(int) $treeId.' ');
+			$query->where( ' jpn.familyName <> '.$this->_db->quote('').' ');
 			$query->order( ' jpn.indexNam ');
 			$this->_db->setQuery($query);
 			$results = $this->_db->loadRowList();

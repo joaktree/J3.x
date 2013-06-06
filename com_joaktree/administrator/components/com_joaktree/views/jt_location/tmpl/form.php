@@ -12,7 +12,7 @@ JHtml::_('formbehavior.chosen', 'select');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'tree.cancel' || document.formvalidator.isValid(document.id('tree-form'))) {
+		if (task == 'location.cancel' || document.formvalidator.isValid(document.id('tree-form'))) {
 			Joomla.submitform(task, document.getElementById('tree-form'));
 		} else {
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');

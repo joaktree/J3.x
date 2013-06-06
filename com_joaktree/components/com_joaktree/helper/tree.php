@@ -84,7 +84,7 @@ class Tree extends JObject {
 						 .' ON (   cc.id        = jte.catid '
 						 .'    AND jte.id       = '.(int) $tree_id.' '
 						 .'    ) '
-						 );			
+						 );		
 						
 		$db->setQuery($query);
 		$articles = $db->loadObjectList();

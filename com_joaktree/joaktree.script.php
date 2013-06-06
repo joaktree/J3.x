@@ -665,8 +665,9 @@ class com_joaktreeInstallerScript
 			$application 	= JFactory::getApplication();
 			
 			switch ($version) {
-				case '1.5.0.beta.2':
-						// Table joaktree_trees
+				case '1.5.0.beta.2': // continue
+				case '1.5.0': // continue
+					// Table joaktree_trees
 						$update_queries[] = 
 						    'ALTER TABLE '
 						   .'#__joaktree_trees '

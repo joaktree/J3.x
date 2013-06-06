@@ -17,7 +17,7 @@ $clrPerson  = 'window.parent.jClearPerson();';
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'tree.cancel' || document.formvalidator.isValid(document.id('location-form'))) {
+		if (task == 'map.cancel' || document.formvalidator.isValid(document.id('location-form'))) {
 			Joomla.submitform(task, document.getElementById('location-form'));
 		} else {
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');

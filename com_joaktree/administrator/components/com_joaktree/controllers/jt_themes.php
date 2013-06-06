@@ -51,7 +51,7 @@ class JoaktreeControllerJt_themes extends JoaktreeController {
 	
 	public function edit() {
 		$cids	= $this->input->get('cid', array(), 'array');
-		$cid	= (int) $cids[0];
+		$cid	= isset($cids[0]) ? (int) $cids[0] : '';
 		$this->input->set('id', $cid);
 
 		$this->input->set('view', 'jt_theme' );

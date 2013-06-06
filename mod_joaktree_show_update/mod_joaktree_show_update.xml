@@ -3,12 +3,12 @@
 <extension 	type="module" version="3.0" client="site" method="upgrade">
 	<name>mod_joaktree_show_update</name>
 	<author>Jan Suhr, Color Consult AB</author>
-	<creationDate>May 2013</creationDate>
+	<creationDate>June 2013</creationDate>
     <copyright>This module its released under GPL/GNU License</copyright>
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
 	<authorEmail>info@colorconsult.se</authorEmail>
 	<authorUrl>www.colorconsult.se</authorUrl>
-	<version>1.5.0.beta.1</version>
+	<version>1.5.0</version>
 	<description>MOD_JOAKTREE_SHOW_UPDATE_DESC</description>
 	
 	<!-- user part -->

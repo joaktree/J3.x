@@ -362,27 +362,3 @@ $sortFields = $this->getSortFields();
 	<?php echo JHtml::_('form.token'); ?>
 	
 </form>
-
-
-<!-- Tot hier toe  -->
-<script type="text/javascript">
-	<?php echo $this->lists['jsscript']; ?>
-</script>
-<?php if ($this->lists['action'] == 'assign') { ?>
-	<script>
-		window.addEvent('domready', function() {
-			assignFTInit(<?php echo $this->lists['act_treeId']; ?>);
-		});
-	</script>
-<?php } ?>
-
-
-
-
-
-
-
-
-
-
-

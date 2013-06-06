@@ -13,7 +13,7 @@ JHtml::_('behavior.formvalidation');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'cancel' || document.formvalidator.isValid(document.id('theme-form'))) {
+		if (task == 'theme.cancel' || document.formvalidator.isValid(document.id('theme-form'))) {
 			Joomla.submitform(task, document.getElementById('theme-form'));
 		} else {
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
@@ -22,7 +22,7 @@ JHtml::_('behavior.formvalidation');
 </script>
 
 <form 
-	action="<?php echo JRoute::_('index.php?option=com_joaktree'); ?>" 
+	action="<?php echo JRoute::_('index.php?option=com_joaktree&view=jt_themes'); ?>" 
 	method="post" 
 	name="adminForm" 
 	id="theme-form" 
@@ -33,7 +33,7 @@ JHtml::_('behavior.formvalidation');
 		<ul class="nav nav-tabs">
 			<li class="<?php echo (empty($this->item->id) ? 'active' : ''); ?>">
 				<a href="#details" data-toggle="tab">
-				<?php echo empty($this->item->id) ? JText::_('JTTHEME_TITLE_NEWNAME') : JText::sprintf('JTTHEME_TITLE_EDITNAME', ucfirst($this->item->title)); ?>
+				<?php echo empty($this->item->id) ? JText::_('JTTHEME_TITLE_NEWNAME') : JText::sprintf('JTTHEME_TITLE_EDITNAME', ucfirst($this->item->name)); ?>
 				</a>
 			</li>
 			<li class="<?php echo (empty($this->item->id) ? '' : 'active'); ?>">

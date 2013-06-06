@@ -77,9 +77,9 @@ class JoaktreeViewJt_tree extends JViewLegacy {
 		}
 
 		if (empty($this->item->id))  {
-			JToolBarHelper::cancel('cancel','JTOOLBAR_CANCEL');
+			JToolBarHelper::cancel('tree.cancel','JTOOLBAR_CANCEL');
 		} else {
-			JToolBarHelper::cancel('cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('tree.cancel', 'JTOOLBAR_CLOSE');
 		}
 
 		JToolBarHelper::divider();

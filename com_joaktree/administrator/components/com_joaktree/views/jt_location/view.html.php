@@ -73,9 +73,9 @@ class JoaktreeViewJT_location extends JViewLegacy {
 		}
 
 		if (empty($this->item->id))  {
-			JToolBarHelper::cancel('cancel','JTOOLBAR_CANCEL');
+			JToolBarHelper::cancel('location.cancel','JTOOLBAR_CANCEL');
 		} else {
-			JToolBarHelper::cancel('cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('location.cancel', 'JTOOLBAR_CLOSE');
 		}
 
 		JToolBarHelper::divider();
