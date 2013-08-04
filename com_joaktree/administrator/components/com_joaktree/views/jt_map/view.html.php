@@ -24,7 +24,7 @@ jimport( 'joomla.application.component.view');
 /**
  * HTML View class for the Joaktree component
  */
-class JoaktreeViewJT_map extends JViewLegacy {
+class JoaktreeViewJt_map extends JViewLegacy {
 
 	protected $form;
 	protected $item;

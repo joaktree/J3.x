@@ -16,7 +16,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class JoaktreeControllerjt_persons extends JoaktreeController {
+class JoaktreeControllerJt_persons extends JoaktreeController {
 	function __construct() {
 		// check token first
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));

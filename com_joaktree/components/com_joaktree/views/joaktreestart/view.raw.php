@@ -24,7 +24,7 @@ jimport( 'joomla.application.component.view');
 /**
  * HTML View class for the Joaktree component
  */
-class JoaktreeViewJoaktreeStart extends JViewLegacy {
+class JoaktreeViewJoaktreestart extends JViewLegacy {
 	function display($tpl = null) {	
 		$this->lists 		= array();
 		

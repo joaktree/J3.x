@@ -22,7 +22,7 @@ jimport('legacy.model.list');
 
 JTable::addIncludePath(JPATH_COMPONENT.DS.'tables');
 
-class JoaktreeModeljt_persons extends JModelList {
+class JoaktreeModelJt_persons extends JModelList {
 
 	var $_persons;
 	var $_trees;

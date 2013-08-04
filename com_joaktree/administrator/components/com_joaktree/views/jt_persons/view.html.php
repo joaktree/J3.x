@@ -22,7 +22,7 @@ defined('_JEXEC') or die('Restricted access');
 // Import Joomla! libraries
 jimport( 'joomla.application.component.view');
 
-class JoaktreeViewjt_persons extends JViewLegacy {
+class JoaktreeViewJt_persons extends JViewLegacy {
 	function display($tpl = null) {
 		
 		$app = JFactory::getApplication();

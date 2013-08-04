@@ -25,7 +25,7 @@ jimport( 'joomla.html.html.select' );
 /**
  * HTML View class for the Joaktree component
  */
-class JoaktreeViewJT_locations extends JViewLegacy {
+class JoaktreeViewJt_locations extends JViewLegacy {
 	function display($tpl = null) {
 
 		$app = JFactory::getApplication();				

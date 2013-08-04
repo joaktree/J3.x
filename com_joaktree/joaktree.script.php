@@ -451,6 +451,7 @@ class com_joaktreeInstallerScript
 			   
 			$update_queries[] = 'INSERT INTO #__joaktree_registry_items (regkey, value) VALUES ("LAST_UPDATE_DATETIME", NOW() )';
 			$update_queries[] = 'INSERT INTO #__joaktree_registry_items (regkey, value) VALUES ("INITIAL_CHAR", "0" )';
+			$update_queries[] = 'INSERT INTO #__joaktree_registry_items (regkey, value) VALUES ("VERSION", "'.$version.'" )';
 			// end: joaktree_registry_items
 			   
 			// Table joaktree_relations
@@ -639,7 +640,7 @@ class com_joaktreeInstallerScript
 			   .'COMMENT="'.$version.'" ';
 			// end: joaktree_tree_persons
         	
-			// Perform all queries - we don't care if it fails
+			// Perform all queries
 			foreach( $update_queries as $query ) {
 			    $db->setQuery( $query );
 			    $db->query();
@@ -657,35 +658,58 @@ class com_joaktreeInstallerScript
          */
         public function update($installer) {
         	// upgrade
-			$version = (string) JInstaller::getInstance()->getManifest()->version;
+			$new_version = (string) JInstaller::getInstance()->getManifest()->version;
         	
 			// Initialize the database
 			$db 			= JFactory::getDBO();
         	$update_queries = array();
 			$application 	= JFactory::getApplication();
 			
-			switch ($version) {
-				case '1.5.0.beta.2': // continue
-				case '1.5.0': // continue
-					// Table joaktree_trees
-						$update_queries[] = 
-						    'ALTER TABLE '
-						   .'#__joaktree_trees '
-						   .'ADD catid           int(11)                   NULL '
-						   .'AFTER  root_person_id ';	   
-						// end: joaktree_trees
-						break;
-				default: break;
-			}      				
-
-				
-			// Perform all queries - we don't care if it fails
-			foreach( $update_queries as $query ) {
-			    $db->setQuery( $query );
-			    $db->query();
+			// current version in database
+			$query 			= $db->getQuery(true);
+			$query->select(' value ');
+			$query->from(  ' #__joaktree_registry_items ');
+			$query->where( ' regkey = '.$db->quote('VERSION').' ');			
+			$db->setQuery($query);			
+			$old_version = $db->loadResult();
+			
+			if (empty($old_version)) {
+				$old_version = 'unknown';
+				$update_queries[] = 'INSERT INTO #__joaktree_registry_items (regkey, value) VALUES ("VERSION", "'.$new_version.'" )';
+			} else {
+				$update_queries[] = 'UPDATE #__joaktree_registry_items SET value = "'.$new_version.'" WHERE regkey = "VERSION" ';
 			}
 			
-			$application->enqueueMessage( 'Database update script is finished for version '.$version, 'notice' ) ;
+			
+			switch ($old_version) {
+				case '1.5.0.beta.1' :
+							switch ($new_version) {
+								case '1.5.0.beta.2': // continue
+								case '1.5.0.beta.3': // continue
+								case '1.5.0': 		 // continue
+									 	// Table joaktree_trees
+										$update_queries[] = 
+										    'ALTER IGNORE TABLE '
+										   .'#__joaktree_trees '
+										   .'ADD catid           int(11)                   NULL '
+										   .'AFTER  root_person_id ';	   
+										// end: joaktree_trees
+										break;
+								default: break;								
+							}
+							break;
+							
+				default:	// continue
+							break;
+			}
+				
+			// Perform all queries
+			foreach( $update_queries as $query ) {
+			    $db->setQuery( $query );
+			    $result = $db->execute();
+			} 
+			
+			$application->enqueueMessage( 'Database update script is finished for version '.$new_version, 'notice' ) ;
         }
  
         /**

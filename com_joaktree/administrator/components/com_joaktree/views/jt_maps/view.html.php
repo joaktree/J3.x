@@ -24,7 +24,7 @@ jimport( 'joomla.application.component.view');
 /**
  * HTML View class for the Joaktree component
  */
-class JoaktreeViewJT_maps extends JViewLegacy {
+class JoaktreeViewJt_maps extends JViewLegacy {
 	function display($tpl = null) {
 	
 		$app = JFactory::getApplication();				
