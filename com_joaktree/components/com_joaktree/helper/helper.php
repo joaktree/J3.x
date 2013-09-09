@@ -1157,6 +1157,10 @@ class JoaktreeHelper {
 	}
 
 	function displayDate($dateString) {
+		if ($dateString == JText::_('JT_ALTERNATIVE')) {
+			return $dateString;
+		}
+		
 		$result = strtoupper( $dateString );
 		
 		// Distinguish between BEF and BEFORE
