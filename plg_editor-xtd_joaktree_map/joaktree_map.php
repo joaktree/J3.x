@@ -52,6 +52,7 @@ class plgButtonJoaktree_map extends JPlugin
 
 		$button = new JObject();
 		$button->set('modal', true);
+		$button->class = 'btn';
 		$button->set('link', $link);
 		$button->set('text', JText::_('PLG_JOAKTREE_BUTTON_MAP'));
 		$button->set('name', 'map');
